@@ -1,0 +1,5 @@
+Linear regression is one of the "workhorse" models used in a wide variety of fields. No matter how far complex ML models go, the simplicity and usefulness of linear regression will always be valuable. Linear regressions are often the first model we turn to for an understanding of how two different phenomena relate, I will look to explore how to implement thsis in python.
+
+Dataset from UCI Machine Learning Repository
+
+we'll examine how the characteristics of the car relate to the normalized_losses, which represents the average payment that an insurance company pays when a car of that particular row has an accident. We want to predict this payment for other cars, so we'll use linear regression.
