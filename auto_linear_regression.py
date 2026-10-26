@@ -2,6 +2,10 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
+
+import matplotlib.pyplot as plt
 
 auto = pd.read_csv('automobiles.csv')
 
@@ -32,3 +36,22 @@ model = LinearRegression()
 model.fit(X_diesel, y_train)
 intercept = model.intercept_
 coefficient = model.coef_
+
+############## residuals ###########
+ml2 = LinearRegression()
+
+X_train_subset = X_train[['length', 'width']]
+ml2.fit(X_train_subset, y_train)
+
+predictions = ml2.predict(X_train_subset)
+residuals = y_train - predictions
+residual_mean = residuals.mean()
+
+
+fig, ax = plt.subplots()
+ax = plt.scatter(predictions, residuals)
+plt.show()
+
+training_mse = mean_squared_error(y_train, predictions)
+training_rmse =  mean_squared_error(y_train, predictions, squared=False)
+R2 = r2_score(y_train, predictions)
